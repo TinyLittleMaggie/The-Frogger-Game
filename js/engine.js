@@ -149,13 +149,11 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        // allEnemies.forEach(function(enemy) {
-        //     enemy.render();
-        // });
+        allEnemies.forEach(function(enemy) {
+            enemy.render();
+        });
 
-        // player.render();
-        ctx.drawImage(Resources.get('images/char-princess-girl.png'), 3 * 101, 5 * 83 - 20);
-        ctx.drawImage(Resources.get('images/enemy-bug.png'), 2 * 101, 3 * 83 - 20);
+        player.render();
     }
 
     /* This function does nothing but it could have been a good place to
