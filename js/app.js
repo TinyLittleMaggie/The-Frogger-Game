@@ -90,6 +90,13 @@ for (i = 0; i < 3; i++) {
   allEnemies.push(new Enemy(x, y, v));
 }
 
+setInterval(function() {
+  let x = -1;
+  let y = getRandomInt(2, 4);
+  let v = getRandomInt(60, 240);
+  allEnemies.push(new Enemy(x, y, v));
+}, 1000);
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
