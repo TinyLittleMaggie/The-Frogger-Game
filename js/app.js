@@ -96,6 +96,9 @@ setInterval(function() {
   let y = getRandomInt(1, 4);
   let v = getRandomInt(60, 240);
   allEnemies.push(new Enemy(x, y, v));
+  allEnemies = allEnemies.filter(function(element) {
+    return element.x < 505;
+  });
 }, 1000);
 
 // This listens for key presses and sends the keys to your
