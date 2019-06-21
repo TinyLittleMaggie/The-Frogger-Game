@@ -83,16 +83,17 @@ var player = new Player(3, 0);
 var allEnemies = [];
 
 // Generate the first three enemies when the game starts
-for (i = 0; i < 3; i++) {
+for (i = 0; i < 4; i++) {
   let x = getRandomInt(0, 6);
-  let y = getRandomInt(2, 4);
+  let y = getRandomInt(1, 3);
   let v = getRandomInt(60, 240);
   allEnemies.push(new Enemy(x, y, v));
 }
 
+// Generate the rest of the enemies
 setInterval(function() {
   let x = -1;
-  let y = getRandomInt(2, 4);
+  let y = getRandomInt(1, 3);
   let v = getRandomInt(60, 240);
   allEnemies.push(new Enemy(x, y, v));
 }, 1000);

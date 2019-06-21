@@ -107,12 +107,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/ice.png',   // 1st row: water
-                'images/ice.png',   // 2nd row: water
-                'images/land.png',   // 3rd row: stone
-                'images/land.png',   // 4th row: stone
-                'images/land.png',   // 5th row: stone
-                'images/meadow.png'    // 6th row: grass
+                'images/ice.png',
+                'images/land.png',
+                'images/land.png',
+                'images/land.png',
+                'images/meadow.png',   
+                'images/meadow.png'
             ],
             numRows = 6,
             numCols = 7,
