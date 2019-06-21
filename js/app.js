@@ -1,5 +1,13 @@
+// Random Number Generator
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 // Enemies our player must avoid
-var Enemy = function(x, y) {
+var Enemy = function(x, y, v) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
 
@@ -8,6 +16,7 @@ var Enemy = function(x, y) {
   this.sprite = 'images/cloud.png';
   this.x = x * 101;
   this.y = y * 83 - 20;
+  this.v = v;
 };
 
 // Update the enemy's position, required method for game
@@ -16,7 +25,7 @@ Enemy.prototype.update = function(dt) {
   // You should multiply any movement by the dt parameter
   // which will ensure the game runs at the same speed for
   // all computers.
-  this.x = this.x + 40 * dt; // move the enemies at 40 pixels/second
+  this.x = this.x + this.v * dt; // move the enemies at v pixels/second
 };
 
 // Draw the enemy on the screen, required method for game
@@ -43,39 +52,43 @@ Player.prototype.update = function() {
 };
 
 Player.prototype.handleInput = function(key) {
-    // Move player according to keyboard input
-    // If statements are used to detect canvas boundaries
-    switch (key) {
-      case 'left':
-        if (this.x > 0) {
-          this.x = this.x - 101;
-        }
-        break;
-      case 'right':
-        if (this.x < 606) {
-          this.x = this.x + 101;
-        }
-        break;
-      case 'up':
-        if (this.y > -20) {
-          this.y = this.y - 83;
-        }
-        break;
-      case 'down':
-        if (this.y < 395) {
-          this.y = this.y + 83;
-        }
-    }
+  // Move player according to keyboard input
+  // If statements are used to detect canvas boundaries
+  switch (key) {
+    case 'left':
+      if (this.x > 0) {
+        this.x = this.x - 101;
+      }
+      break;
+    case 'right':
+      if (this.x < 606) {
+        this.x = this.x + 101;
+      }
+      break;
+    case 'up':
+      if (this.y > -20) {
+        this.y = this.y - 83;
+      }
+      break;
+    case 'down':
+      if (this.y < 395) {
+        this.y = this.y + 83;
+      }
+  }
 };
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+// Instantiate entities
 
 var player = new Player(3, 0);
-var enemy1 = new Enemy(2, 3);
-var enemy2 = new Enemy(4, 2);
-var allEnemies = [enemy1, enemy2];
+var allEnemies = [];
+
+// Generate the first three enemies when the game starts
+for (i = 0; i < 3; i++) {
+  let x = getRandomInt(0, 6);
+  let y = getRandomInt(2, 4);
+  let v = getRandomInt(60, 240);
+  allEnemies.push(new Enemy(x, y, v));
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
