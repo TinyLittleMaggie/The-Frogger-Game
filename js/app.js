@@ -61,7 +61,7 @@ Player.prototype.handleInput = function(key) {
       }
       break;
     case 'right':
-      if (this.x < 606) {
+      if (this.x < 404) {
         this.x = this.x + 101;
       }
       break;
@@ -85,7 +85,7 @@ var allEnemies = [];
 // Generate the first three enemies when the game starts
 for (i = 0; i < 4; i++) {
   let x = getRandomInt(0, 6);
-  let y = getRandomInt(1, 3);
+  let y = getRandomInt(1, 4);
   let v = getRandomInt(60, 240);
   allEnemies.push(new Enemy(x, y, v));
 }
@@ -93,7 +93,7 @@ for (i = 0; i < 4; i++) {
 // Generate the rest of the enemies
 setInterval(function() {
   let x = -1;
-  let y = getRandomInt(1, 3);
+  let y = getRandomInt(1, 4);
   let v = getRandomInt(60, 240);
   allEnemies.push(new Enemy(x, y, v));
 }, 1000);

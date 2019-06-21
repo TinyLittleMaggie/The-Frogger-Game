@@ -24,7 +24,7 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 707;
+    canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
@@ -111,11 +111,11 @@ var Engine = (function(global) {
                 'images/land.png',
                 'images/land.png',
                 'images/land.png',
-                'images/meadow.png',   
+                'images/land.png',
                 'images/meadow.png'
             ],
             numRows = 6,
-            numCols = 7,
+            numCols = 5,
             row, col;
 
         // Before drawing, clear existing canvas
