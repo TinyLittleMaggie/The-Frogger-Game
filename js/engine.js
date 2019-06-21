@@ -107,12 +107,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // 1st row: water
-                'images/water-block.png',   // 2nd row: water
-                'images/stone-block.png',   // 3rd row: stone
-                'images/stone-block.png',   // 4th row: stone
-                'images/stone-block.png',   // 5th row: stone
-                'images/grass-block.png'    // 6th row: grass
+                'images/ice.png',   // 1st row: water
+                'images/ice.png',   // 2nd row: water
+                'images/land.png',   // 3rd row: stone
+                'images/land.png',   // 4th row: stone
+                'images/land.png',   // 5th row: stone
+                'images/meadow.png'    // 6th row: grass
             ],
             numRows = 6,
             numCols = 7,
@@ -149,11 +149,12 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
+        player.render();
+
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
 
-        player.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -169,11 +170,11 @@ var Engine = (function(global) {
      * all of these images are properly loaded our game will start.
      */
     Resources.load([
-        'images/stone-block.png',
-        'images/water-block.png',
-        'images/grass-block.png',
-        'images/enemy-bug.png',
-        'images/char-princess-girl.png'
+        'images/land.png',
+        'images/ice.png',
+        'images/meadow.png',
+        'images/cloud.png',
+        'images/zoe.png'
     ]);
     Resources.onReady(init);
 
