@@ -5,6 +5,31 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Simple collision detection
+// In this game, objects can be considered as 101 * 83 boxes.
+function collides(a, b) {
+  let xDistance = Math.abs(a.x - b.x);
+  let yDistance = Math.abs(a.y - b.y);
+  if (xDistance < 101 && yDistance < 83) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// This checks collisions of all entities
+function checkCollisions() {
+  allStars.forEach(function(star) {
+    if (collides(star, player)) {
+      star.collected = true;
+      starNumber++;
+      console.log('star number = ' + starNumber);
+    }
+  });
+  allStars = allStars.filter(function(star) {
+    return star.collected == false;
+  });
+}
 
 // Enemies our player must avoid
 var Enemy = function(x, y, v) {
@@ -82,6 +107,7 @@ var Star = function(x, y) {
   this.sprite = 'images/star.png';
   this.x = x * 101;
   this.y = y * 83 - 20;
+  this.collected = false;
 };
 
 Star.prototype.render = function() {
@@ -91,16 +117,27 @@ Star.prototype.render = function() {
 // Instantiate entities
 
 var player = new Player(3, 0);
-var star = new Star(3, 3);
+var allStars = [];
 var allEnemies = [];
+var starNumber = 0;
 
 // Generate the first three enemies when the game starts
 for (i = 0; i < 4; i++) {
-  let x = getRandomInt(0, 6);
+  let x = getRandomInt(0, 4);
   let y = getRandomInt(1, 4);
   let v = getRandomInt(60, 240);
   allEnemies.push(new Enemy(x, y, v));
 }
+
+// Generate stars every 4 seconds
+// (only add new stars when there are less than three stars)
+setInterval(function() {
+  if (allStars.length < 3) {
+    let x = getRandomInt(0, 4);
+    let y = getRandomInt(1, 4);
+    allStars.push(new Star(x, y));
+  }
+}, 4000);
 
 // Generate the rest of the enemies
 setInterval(function() {
