@@ -77,9 +77,21 @@ Player.prototype.handleInput = function(key) {
   }
 };
 
+// Stars that the player can collect
+var Star = function(x, y) {
+  this.sprite = 'images/star.png';
+  this.x = x * 101;
+  this.y = y * 83 - 20;
+};
+
+Star.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 // Instantiate entities
 
 var player = new Player(3, 0);
+var star = new Star(3, 3);
 var allEnemies = [];
 
 // Generate the first three enemies when the game starts

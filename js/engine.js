@@ -150,6 +150,7 @@ var Engine = (function(global) {
          * the render function you have defined.
          */
         player.render();
+        star.render();
 
         allEnemies.forEach(function(enemy) {
             enemy.render();
@@ -174,7 +175,8 @@ var Engine = (function(global) {
         'images/ice.png',
         'images/meadow.png',
         'images/cloud.png',
-        'images/zoe.png'
+        'images/zoe.png',
+        'images/star.png'
     ]);
     Resources.onReady(init);
 
