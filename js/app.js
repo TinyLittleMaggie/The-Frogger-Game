@@ -23,7 +23,7 @@ function checkCollisions() {
     if (collides(star, player)) {
       star.collected = true;
       starNumber++;
-      console.log('star number = ' + starNumber);
+      document.querySelector('.starboard').appendChild(smallStar.cloneNode(true));
     }
   });
   allStars = allStars.filter(function(star) {
@@ -114,12 +114,15 @@ Star.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Instantiate entities
+// Instantiate entities & initiate variables
 
 var player = new Player(3, 0);
 var allStars = [];
 var allEnemies = [];
 var starNumber = 0;
+var smallStar = document.createElement('div');
+smallStar.className = 'small-star';
+smallStar.innerHTML = '<img src="images/star-small.png" alt="star" width="30px">';
 
 // Generate the first three enemies when the game starts
 for (i = 0; i < 4; i++) {
