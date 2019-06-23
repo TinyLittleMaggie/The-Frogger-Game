@@ -10,7 +10,7 @@ function getRandomInt(min, max) {
 function collides(a, b) {
   let xDistance = Math.abs(a.x - b.x);
   let yDistance = Math.abs(a.y - b.y);
-  if (xDistance < 101 && yDistance < 83) {
+  if (xDistance < 70 && yDistance < 80) {
     return true;
   } else {
     return false;
@@ -19,6 +19,7 @@ function collides(a, b) {
 
 // This checks collisions of all entities
 function checkCollisions() {
+  // Detect star collection
   allStars.forEach(function(star) {
     if (collides(star, player)) {
       star.collected = true;
@@ -27,6 +28,14 @@ function checkCollisions() {
   });
   allStars = allStars.filter(function(star) {
     return star.collected == false;
+  });
+  // Detect enemy attacks
+  allEnemies.forEach(function(enemy) {
+    if (collides(enemy, player)) {
+      console.log('Game Over!');
+      player.x = 202;
+      player.y = -20;
+    }
   });
 }
 
@@ -115,7 +124,7 @@ Star.prototype.render = function() {
 
 // Instantiate entities & initiate variables
 
-var player = new Player(3, 0);
+var player = new Player(2, 0);
 var allStars = [];
 var allEnemies = [];
 var starNumber = 0;
