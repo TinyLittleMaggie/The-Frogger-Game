@@ -100,6 +100,7 @@ Player.prototype.handleInput = function(key) {
       break;
     case 'up':
       if (this.y > 63) {
+        // This prevents the player from going back to the blue area
         this.y = this.y - 83;
       }
       break;
