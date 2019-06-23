@@ -99,7 +99,7 @@ Player.prototype.handleInput = function(key) {
       }
       break;
     case 'up':
-      if (this.y > -20) {
+      if (this.y > 63) {
         this.y = this.y - 83;
       }
       break;
