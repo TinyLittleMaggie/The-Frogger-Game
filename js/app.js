@@ -41,6 +41,7 @@ function checkCollisions() {
   if (player.y > 394) {
     document.querySelector('.winningPopUp').style.visibility = "visible";
     document.querySelector('.score').innerHTML = '× ' + starNumber;
+    player.active = false;
   }
 }
 
@@ -79,6 +80,7 @@ var Player = function(x, y) {
   this.sprite = 'images/zoe.png';
   this.x = x * 101;
   this.y = y * 83 - 20;
+  this.active = true;
 };
 
 Player.prototype.render = function() {
@@ -91,29 +93,34 @@ Player.prototype.update = function() {
 
 Player.prototype.handleInput = function(key) {
   // Move player according to keyboard input
-  // If statements are used to detect canvas boundaries
-  switch (key) {
-    case 'left':
-      if (this.x > 0) {
-        this.x = this.x - 101;
-      }
-      break;
-    case 'right':
-      if (this.x < 404) {
-        this.x = this.x + 101;
-      }
-      break;
-    case 'up':
-      if (this.y > 63) {
-        // This prevents the player from going back to the blue area
-        this.y = this.y - 83;
-      }
-      break;
-    case 'down':
-      if (this.y < 395) {
-        this.y = this.y + 83;
-      }
+
+  if (this.active === true) {
+    // Only respond to arrow keys when player is active
+    switch (key) {
+      // If statements are used to detect canvas boundaries
+      case 'left':
+        if (this.x > 0) {
+          this.x = this.x - 101;
+        }
+        break;
+      case 'right':
+        if (this.x < 404) {
+          this.x = this.x + 101;
+        }
+        break;
+      case 'up':
+        if (this.y > 63) {
+          // This prevents the player from going back to the blue area
+          this.y = this.y - 83;
+        }
+        break;
+      case 'down':
+        if (this.y < 395) {
+          this.y = this.y + 83;
+        }
+    }
   }
+
 };
 
 // Stars that the player can collect
