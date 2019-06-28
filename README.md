@@ -16,8 +16,6 @@ I've added a personal touch to the game by updating the graphic assets myself.
 
 ## Skills
 
-1. This project has been an opportunity to practice what I've learned in the **Object-oriented Programming** section of the online programme. Class functions (like `Player` and `Enemy`) and class prototype functions such as `Enemy.prototype.checkCollisions` are used to implement the entities that you see on the screen.
+This project has been an opportunity to practice what I've learned in the **Object-oriented Programming** section of the online programme. Class functions (like `Player` and `Enemy`) and class prototype functions such as `Enemy.prototype.checkCollisions` are used to implement the entities that you see on the screen. Here's the project [rubric](https://review.udacity.com/#!/rubrics/15/view) in detail.
 
-Here's the project [rubric](https://review.udacity.com/#!/rubrics/15/view) in detail.
-
-2. Graphic assets are made in Tayasui Sketches
+Graphic assets are made in Tayasui Sketches
