@@ -1,15 +1,20 @@
 # The Frogger Game
 
+Upload image
+
+How to play
 [Play the game!](https://tinylittlemaggie.github.io/The-Frogger-Game)
 
-## Instructions
+The concept
+1. initial requirements (and game assets)
+2. how I've added the story
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+Skills
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+1. Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+[rubric](https://review.udacity.com/#!/rubrics/15/view)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+2. Drawings are made in Kayasui Sketches
 
-
+Future improvements
