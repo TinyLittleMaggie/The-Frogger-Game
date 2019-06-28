@@ -2,7 +2,7 @@
 
 Upload image
 
-How to play
+How to play\
 [Play the game!](https://tinylittlemaggie.github.io/The-Frogger-Game)
 
 The concept
