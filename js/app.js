@@ -1,3 +1,11 @@
+// Reset game
+function resetGame() {
+  player = new Player(2, 0);
+  allStars = [];
+  starNumber = 0;
+  document.querySelector('.winningPopUp').style.visibility = "hidden";
+}
+
 // Random Number Generator
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -175,6 +183,10 @@ document.addEventListener('keyup', function(e) {
     39: 'right',
     40: 'down'
   };
-
   player.handleInput(allowedKeys[e.keyCode]);
+});
+
+// The "play again" button
+document.querySelector('.playAgain').addEventListener('click', function() {
+  resetGame();
 });
