@@ -16,9 +16,10 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 6em;
+  top: 96px;
   z-index: 1;
-  background-image: url("images/white-panel.png");
+  font-family: 'Gochi Hand', cursive;
+  visibility: hidden;
 }
 
 .popUpPanel {
@@ -33,7 +34,9 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 3em;
+  top: 100px;
+  font-size: 40px;
+  color: #6EB9CC;
 }
 
 .popUpScore {
@@ -41,5 +44,25 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 10em;
+  top: 160px;
+  font-size: 36px;
+  color: #FFB346;
+}
+
+.score {
+  position: relative;
+  top: -16px;
+}
+
+.playAgain {
+  width: 200px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 240px;
+}
+
+.playAgain:hover {
+  transform: scale(1.02);
+  cursor: pointer;
 }

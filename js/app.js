@@ -37,6 +37,11 @@ function checkCollisions() {
       player.y = -20;
     }
   });
+  // Detect player arrival
+  if (player.y > 394) {
+    document.querySelector('.winningPopUp').style.visibility = "visible";
+    document.querySelector('.score').innerHTML = '× ' + starNumber;
+  }
 }
 
 // Enemies our player must avoid
