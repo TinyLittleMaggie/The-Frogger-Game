@@ -1,6 +1,6 @@
 # The Frogger Game
 
-![](images/screen-shot-v2.png)
+![](images/github-cover-image.png)
 
 ## How to Play
 [Play the game!](https://tinylittlemaggie.github.io/The-Frogger-Game)
