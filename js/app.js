@@ -17,8 +17,9 @@ function collides(a, b) {
   }
 }
 
-// This checks collisions of all entities
+// Check collisions of all entities
 function checkCollisions() {
+
   // Detect star collection
   allStars.forEach(function(star) {
     if (collides(star, player)) {
@@ -29,53 +30,47 @@ function checkCollisions() {
   allStars = allStars.filter(function(star) {
     return star.collected == false;
   });
+
   // Detect enemy attacks
   allEnemies.forEach(function(enemy) {
     if (collides(enemy, player)) {
-      console.log('Game Over!');
       player.x = 202;
       player.y = -20;
     }
   });
+
   // Detect player arrival
   if (player.y > 394) {
+    // Display congratulations panel
     document.querySelector('.winningPopUp').style.visibility = "visible";
     document.querySelector('.score').innerHTML = '× ' + starNumber;
+    // Disable player movements
     player.active = false;
   }
 }
 
-// Enemies our player must avoid
+// Enemies that a player must avoid
 var Enemy = function(x, y, v) {
-  // Variables applied to each of our instances go here,
-  // we've provided one for you to get started
-
-  // The image/sprite for our enemies, this uses
-  // a helper we've provided to easily load images
   this.sprite = 'images/cloud.png';
   this.x = x * 101;
   this.y = y * 83 - 20;
   this.v = v;
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+// Update the enemy's position
+// (Multiplying movement by the dt parameter
+// ensures that the game runs at the same speed for all computers.)
 Enemy.prototype.update = function(dt) {
-  // You should multiply any movement by the dt parameter
-  // which will ensure the game runs at the same speed for
-  // all computers.
-  this.x = this.x + this.v * dt; // move the enemies at v pixels/second
+  // move the enemies at v pixels/second
+  this.x = this.x + this.v * dt;
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
+// The Player Constructor
 var Player = function(x, y) {
   this.sprite = 'images/zoe.png';
   this.x = x * 101;
@@ -120,7 +115,6 @@ Player.prototype.handleInput = function(key) {
         }
     }
   }
-
 };
 
 // Stars that the player can collect
@@ -136,7 +130,6 @@ Star.prototype.render = function() {
 };
 
 // Instantiate entities & initiate variables
-
 var player = new Player(2, 0);
 var allStars = [];
 var allEnemies = [];
@@ -161,6 +154,8 @@ setInterval(function() {
 }, 4000);
 
 // Generate the rest of the enemies
+// (every time an enemy is generated, also go over the entire array and
+// delete those enemies that have reached the right edge of the canvas)
 setInterval(function() {
   let x = -1;
   let y = getRandomInt(1, 4);
@@ -171,8 +166,7 @@ setInterval(function() {
   });
 }, 1000);
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Listen for key presses and send the keys to the Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
   var allowedKeys = {
     37: 'left',
