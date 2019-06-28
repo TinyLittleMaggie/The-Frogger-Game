@@ -36,6 +36,7 @@ function checkCollisions() {
     if (collides(enemy, player)) {
       player.x = 202;
       player.y = -20;
+      starNumber = 0;
     }
   });
 
