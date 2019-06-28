@@ -15,6 +15,6 @@
 
 [rubric](https://review.udacity.com/#!/rubrics/15/view)
 
-2. Drawings are made in Kayasui Sketches
+2. Graphic assets are made in Tayasui Sketches
 
 ## What's Next
