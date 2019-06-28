@@ -1,3 +1,7 @@
+/*****************************************************************************/
+//                            Regular Functions
+/*****************************************************************************/
+
 // Reset game
 function resetGame() {
   player = new Player(2, 0);
@@ -58,6 +62,10 @@ function checkCollisions() {
   }
 }
 
+/*****************************************************************************/
+//                Constructor Functions and Object Methods
+/*****************************************************************************/
+
 // Enemies that a player must avoid
 var Enemy = function(x, y, v) {
   this.sprite = 'images/cloud.png';
@@ -67,10 +75,10 @@ var Enemy = function(x, y, v) {
 };
 
 // Update the enemy's position
-// (Multiplying movement by the dt parameter
-// ensures that the game runs at the same speed for all computers.)
 Enemy.prototype.update = function(dt) {
   // move the enemies at v pixels/second
+  // (Multiplying movement by the dt parameter
+  // ensures that the game runs at the same speed for all computers.)
   this.x = this.x + this.v * dt;
 };
 
@@ -78,6 +86,8 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+// ------------------------------------------------------------------------- //
 
 // The Player Constructor
 var Player = function(x, y) {
@@ -125,6 +135,7 @@ Player.prototype.handleInput = function(key) {
     }
   }
 };
+// ------------------------------------------------------------------------- //
 
 // Stars that the player can collect
 var Star = function(x, y) {
@@ -138,13 +149,18 @@ Star.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+/*****************************************************************************/
+//                          Now The Game Starts!
+/*****************************************************************************/
+
 // Instantiate entities & initiate variables
 var player = new Player(2, 0);
 var allStars = [];
 var allEnemies = [];
 var starNumber = 0;
 
-// Generate the first three enemies when the game starts
+// Generate the first four enemies
+// (so that the canvas isn't completely empty when the game starts)
 for (i = 0; i < 4; i++) {
   let x = getRandomInt(0, 4);
   let y = getRandomInt(1, 4);
@@ -152,7 +168,7 @@ for (i = 0; i < 4; i++) {
   allEnemies.push(new Enemy(x, y, v));
 }
 
-// Generate stars every 4 seconds
+// Generate stars every 3 seconds
 // (only add new stars when there are less than three stars)
 setInterval(function() {
   if (allStars.length < 3) {
@@ -160,7 +176,7 @@ setInterval(function() {
     let y = getRandomInt(1, 4);
     allStars.push(new Star(x, y));
   }
-}, 4000);
+}, 3000);
 
 // Generate the rest of the enemies
 // (every time an enemy is generated, also go over the entire array and
@@ -175,6 +191,10 @@ setInterval(function() {
   });
 }, 1000);
 
+/*****************************************************************************/
+//                         Events to Listen For
+/*****************************************************************************/
+
 // Listen for key presses and send the keys to the Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
   var allowedKeys = {
@@ -186,7 +206,7 @@ document.addEventListener('keyup', function(e) {
   player.handleInput(allowedKeys[e.keyCode]);
 });
 
-// The "play again" button
+// The "Play again" button
 document.querySelector('.playAgain').addEventListener('click', function() {
   resetGame();
 });
