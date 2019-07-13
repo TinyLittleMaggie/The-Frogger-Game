@@ -168,16 +168,6 @@ for (i = 0; i < 4; i++) {
   allEnemies.push(new Enemy(x, y, v));
 }
 
-// Generate stars every 3 seconds
-// (only add new stars when there are less than three stars)
-setInterval(function() {
-  if (allStars.length < 3) {
-    let x = getRandomInt(0, 4);
-    let y = getRandomInt(1, 4);
-    allStars.push(new Star(x, y));
-  }
-}, 3000);
-
 // Generate the rest of the enemies
 // (every time an enemy is generated, also go over the entire array and
 // delete those enemies that have reached the right edge of the canvas)
@@ -190,6 +180,16 @@ setInterval(function() {
     return element.x < 505;
   });
 }, 1000);
+
+// Generate stars every 3 seconds
+// (only add new stars when there are less than three stars)
+setInterval(function() {
+  if (allStars.length < 3) {
+    let x = getRandomInt(0, 4);
+    let y = getRandomInt(1, 4);
+    allStars.push(new Star(x, y));
+  }
+}, 3000);
 
 /*****************************************************************************/
 //                         Events to Listen For
