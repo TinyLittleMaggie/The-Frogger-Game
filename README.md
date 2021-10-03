@@ -10,9 +10,9 @@ Avoid the dark clouds and collect as many stars as possible.\
 
 ## The Concept
 
-This is a project I've completed with Udacity's Front-End Web Development Nanodegree. Basic graphic assets and a game engine were provided by Udacity, and students are required to complete the rest of the game using JavaScript.
+This is a project I've completed with Udacity's Front-End Web Development Nanodegree. Udacity provided a game engine (aka. the scaffolding), and students are required to complete the rest of the game using JavaScript.
 
-I've added a personal touch to the game by updating the graphic assets myself.
+I've added a personal touch to the game by drawing the graphic assets by myself.
 
 ## Skills
 
